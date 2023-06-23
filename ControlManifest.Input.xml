@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="TomsPCFControls" constructor="SubmitTextInput" version="0.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
+    <external-service-usage enabled="false" />
+    <property name="value" display-name-key="Value" description-key="The current value of the textarea." of-type="SingleLine.Text" usage="bound" required="false"/>
+    <property name="onEnterPress" display-name-key="On-Enter-Press" description-key="Event that is triggered when the Enter key is pressed." of-type="SingleLine.Text" usage="output" required="false" />
+    <property name="placeholderText" display-name-key="Placeholder Text" description-key="The placeholder text displayed in the textarea when it's empty." of-type="SingleLine.Text" usage="input" required="false" default-value="Type a new message" />
+    <property name="fontSize" display-name-key="Font Size" description-key="The font size of the textarea text." of-type="Whole.None" usage="input" required="false" default-value="14" />
+    <property name="fontFamily" display-name-key="Font Family" description-key="The font family of the textarea text." of-type="SingleLine.Text" usage="input" required="false" default-value="Segoe UI, sans-serif" />
+    <property name="borderRadius" display-name-key="Border Radius" description-key="The border radius of the textarea." of-type="Whole.None" usage="input" required="false" default-value="4" />
+    <property name="padding" display-name-key="Padding" description-key="The padding inside the textarea." of-type="Whole.None" usage="input" required="false" default-value="8" />
+   <resources>
+      <code path="index.ts" order="1"/>
+      <css path="./css/EnhancedTextarea.css" order="1"/>
+    </resources>
+  </control>
+</manifest>
