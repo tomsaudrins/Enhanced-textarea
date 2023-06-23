@@ -10,6 +10,7 @@ export interface IInputs {
     fontFamily: ComponentFramework.PropertyTypes.StringProperty;
     borderRadius: ComponentFramework.PropertyTypes.WholeNumberProperty;
     padding: ComponentFramework.PropertyTypes.WholeNumberProperty;
+    maxLength: ComponentFramework.PropertyTypes.WholeNumberProperty;
 }
 export interface IOutputs {
     value?: string;
