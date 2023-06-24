@@ -2,8 +2,8 @@ import { IInputs } from "../generated/ManifestTypes";
 
 export const createContainer = (context: ComponentFramework.Context<IInputs>): HTMLDivElement => {
     const container = document.createElement("div");
-    container.style.height = `${context.mode.allocatedHeight}px`;
-    container.style.width = `${context.mode.allocatedWidth}px`;
+    container.style.width = `${context.mode.allocatedWidth}px` 
+    container.style.height = `${context.mode.allocatedHeight}px` 
     return container;
 };
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="TomsPCFControls" constructor="SubmitTextInput" version="0.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
+  <control namespace="TomsPCFComponents" constructor="EnhancedTextarea" version="0.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
     <external-service-usage enabled="false" />
     <property name="Value" display-name-key="Value" description-key="The current value of the textarea." of-type="SingleLine.Text" usage="bound" required="false"/>
     <property name="EventStatus" display-name-key="Event Status" description-key="Event that is triggered when the Enter key is pressed." of-type="SingleLine.Text" usage="output" required="false" />
@@ -10,7 +10,8 @@
     <property name="BorderRadius" display-name-key="Border Radius" description-key="The border radius of the textarea." of-type="Whole.None" usage="input" required="false" default-value="4" />
     <property name="Padding" display-name-key="Padding" description-key="The padding inside the textarea." of-type="Whole.None" usage="input" required="false" default-value="12" />
     <property name="MaxLength" display-name-key="Max Length" description-key="Maximum number of characters allowed in the textarea." of-type="Whole.None" usage="input" required="false" default-value="1000" />   
-   <resources>
+    <property name="DelayedOutput" display-name-key="Delayed Output" description-key="If set to true, onChange event will be executed only after the user loses focus from the control. If set to false, onChange event will be executed on every keypress." of-type="TwoOptions" usage="input" required="false" default-value="false" />    
+    <resources>
       <code path="index.ts" order="1"/>
       <css path="./css/EnhancedTextarea.css" order="1"/>
     </resources>

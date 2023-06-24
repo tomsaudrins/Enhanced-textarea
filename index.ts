@@ -3,7 +3,7 @@ import { onBlurHandler, onKeyDownHandler } from "./js/eventHandlers";
 import { createContainer, createInputElement } from "./js/elementCreation";
 import { updateContainerSize, updateDynamicStyles } from "./js/updateViewFunctions";
 
-export class SubmitTextInput implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+export class EnhancedTextarea implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     private _notifyOutputChanged: () => void;
     private _context: ComponentFramework.Context<IInputs>;
     private _container: HTMLDivElement;
@@ -36,6 +36,7 @@ export class SubmitTextInput implements ComponentFramework.StandardControl<IInpu
 
     public updateInputValue = (): void => {
         this._inputValue = this._inputElement.value;
+        console.log("Updated Value")
     }
 
     public onEnterPressSetter = (value: string): void => {
@@ -54,8 +55,8 @@ export class SubmitTextInput implements ComponentFramework.StandardControl<IInpu
         this._container = createContainer(context);
         this._inputElement = createInputElement(context);
 
-        this._inputElement.addEventListener("blur", () => onBlurHandler(this._inputElement, this.updateInputValue, this._notifyOutputChanged));
-        this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue));
+        this._inputElement.addEventListener("blur", () => onBlurHandler(this._inputElement, this.updateInputValue, this._notifyOutputChanged, this._context.parameters.DelayedOutput.raw || false));
+        this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue, this._context.parameters.DelayedOutput.raw || false));
 
         this._container.appendChild(this._inputElement);
         container.appendChild(this._container);
@@ -67,10 +68,8 @@ export class SubmitTextInput implements ComponentFramework.StandardControl<IInpu
     public updateView(context: ComponentFramework.Context<IInputs>): void {
         updateContainerSize(context, this._container);
         updateDynamicStyles(context, this._inputElement);
-
         if (this._onEnterPress === "EnterPressed") {
                 this._onEnterPress = "";
-                // Notify output changed
                 this._notifyOutputChanged();
         }
     }

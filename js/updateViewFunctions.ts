@@ -20,5 +20,6 @@ export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>
     inputElement.style.padding = `${context.parameters.Padding.raw || 12}px`;
     inputElement.style.fontSize = `${context.parameters.FontSize.raw || 14}px`;
     inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
+    inputElement.value = context.parameters.Value.raw || ""
     
 };
