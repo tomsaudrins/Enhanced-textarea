@@ -12,7 +12,7 @@ export const onKeyDownHandler = (e: KeyboardEvent, onEnterPressSetter: (value: s
     notifyOutputChanged();
 };
 
-export const onBlurHandler = (inputElement: HTMLTextAreaElement, updateInputValue: () => void, notifyOutputChanged: () => void, delayedOutput: boolean): void => {
+export const onBlurHandler = (updateInputValue: () => void, notifyOutputChanged: () => void, delayedOutput: boolean): void => {
     if(delayedOutput !== true)
         return
     

@@ -53,7 +53,7 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
         this._container = createContainer(context);
         this._inputElement = createInputElement(context);
 
-        this._inputElement.addEventListener("blur", () => onBlurHandler(this._inputElement, this.updateInputValue, this._notifyOutputChanged, this._context.parameters.DelayedOutput.raw || false));
+        this._inputElement.addEventListener("blur", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged, this._context.parameters.DelayedOutput.raw || false));
         this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue, this._context.parameters.DelayedOutput.raw || false));
 
         this._container.appendChild(this._inputElement);
