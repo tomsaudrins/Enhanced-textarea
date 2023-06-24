@@ -10,7 +10,6 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
     private _inputElement: HTMLTextAreaElement;
     private _inputValue: string;
     private _onEnterPress: string;
-    private _onEnterPressUsed: boolean = false;
 
     // Getters and Setters
     public get onEnterPress(): string {
@@ -36,7 +35,6 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
 
     public updateInputValue = (): void => {
         this._inputValue = this._inputElement.value;
-        console.log("Updated Value")
     }
 
     public onEnterPressSetter = (value: string): void => {
