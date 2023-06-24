@@ -10,6 +10,7 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
     private _inputElement: HTMLTextAreaElement;
     private _inputValue: string;
     private _onEnterPress: string;
+    private has_been_reset: boolean;
 
     // Getters and Setters
     public get onEnterPress(): string {
@@ -69,6 +70,14 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
         if (this._onEnterPress === "EnterPressed") {
                 this._onEnterPress = "";
                 this._notifyOutputChanged();
+        }
+
+        if(context.parameters.Reset.raw && !this.has_been_reset){
+            this.has_been_reset = true;
+            this._inputValue = "";
+            this._notifyOutputChanged();
+        } else {
+            this.has_been_reset = false;
         }
     }
 

@@ -9,7 +9,10 @@ export const updateContainerSize = (context: ComponentFramework.Context<IInputs>
 
 export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement): void => {
     const inputValue = context.parameters.Value.raw || "";
-    if (inputElement.value !== inputValue && context.updatedProperties.includes("value")) {
+
+    if (context.updatedProperties.includes("Value")) { 
+        inputElement.value = inputValue;
+    } else if (inputElement.value !== inputValue) {
         inputElement.value = inputValue;
     }
 
@@ -20,6 +23,4 @@ export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>
     inputElement.style.padding = `${context.parameters.Padding.raw || 12}px`;
     inputElement.style.fontSize = `${context.parameters.FontSize.raw || 14}px`;
     inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
-    inputElement.value = context.parameters.Value.raw || ""
-    
 };

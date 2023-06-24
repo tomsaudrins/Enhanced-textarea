@@ -12,6 +12,7 @@ export interface IInputs {
     Padding: ComponentFramework.PropertyTypes.WholeNumberProperty;
     MaxLength: ComponentFramework.PropertyTypes.WholeNumberProperty;
     DelayedOutput: ComponentFramework.PropertyTypes.TwoOptionsProperty;
+    Reset: ComponentFramework.PropertyTypes.TwoOptionsProperty;
 }
 export interface IOutputs {
     Value?: string;
