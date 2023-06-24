@@ -39,11 +39,11 @@ export class SubmitTextInput implements ComponentFramework.StandardControl<IInpu
     }
 
     public onEnterPressSetter = (value: string): void => {
-        if (this._onEnterPress !== value) {
+        
             this._onEnterPress = value;
             this._inputValue = this._inputElement.value;
             this._notifyOutputChanged();
-        }
+        
     }
 
     // Initialization
@@ -69,22 +69,15 @@ export class SubmitTextInput implements ComponentFramework.StandardControl<IInpu
         updateDynamicStyles(context, this._inputElement);
 
         if (this._onEnterPress === "EnterPressed") {
-            if (!this._onEnterPressUsed) {
-                this._onEnterPressUsed = true;
-            } else {
-                // Reset the onEnterPress property after it's used
                 this._onEnterPress = "";
-                this._onEnterPressUsed = false;
-
                 // Notify output changed
                 this._notifyOutputChanged();
-            }
         }
     }
 
     // Get Outputs
     public getOutputs(): IOutputs {
-        return { onEnterPress: this.onEnterPress, value: this._inputValue };
+        return { EventStatus: this.onEnterPress, Value: this._inputValue };
     }
 
     // Destroy

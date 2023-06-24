@@ -8,17 +8,17 @@ export const updateContainerSize = (context: ComponentFramework.Context<IInputs>
 };
 
 export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement): void => {
-    const inputValue = context.parameters.value.raw || "";
+    const inputValue = context.parameters.Value.raw || "";
     if (inputElement.value !== inputValue && context.updatedProperties.includes("value")) {
         inputElement.value = inputValue;
     }
 
     // Set the dynamic styles based on the context parameters
-    inputElement.setAttribute("placeholder", context.parameters.placeholderText.raw || "Type a new message");
-    inputElement.style.fontFamily = context.parameters.fontFamily.raw || "Segoe UI, sans-serif";
-    inputElement.style.borderRadius = `${context.parameters.borderRadius.raw || 4}px`;
-    inputElement.style.padding = `${context.parameters.padding.raw || 12}px`;
-    inputElement.style.fontSize = `${context.parameters.fontSize.raw || 14}px`;
-    inputElement.maxLength = context.parameters.maxLength.raw || 1000;
+    inputElement.setAttribute("placeholder", context.parameters.PlaceholderText.raw || "Type a new message");
+    inputElement.style.fontFamily = context.parameters.FontFamily.raw || "Segoe UI, sans-serif";
+    inputElement.style.borderRadius = `${context.parameters.BorderRadius.raw || 4}px`;
+    inputElement.style.padding = `${context.parameters.Padding.raw || 12}px`;
+    inputElement.style.fontSize = `${context.parameters.FontSize.raw || 14}px`;
+    inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
     
 };

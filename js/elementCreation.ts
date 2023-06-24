@@ -11,7 +11,7 @@ export const createInputElement = (context: ComponentFramework.Context<IInputs>)
     const inputElement = document.createElement("textarea");
     inputElement.classList.add("textarea-container");
     inputElement.style.resize = "none";
-    inputElement.value = context.parameters.value.raw || "";
-    inputElement.maxLength = context.parameters.maxLength.raw || 1000;
+    inputElement.value = context.parameters.Value.raw || "";
+    inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
     return inputElement;
 };

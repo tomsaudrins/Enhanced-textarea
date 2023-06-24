@@ -4,15 +4,15 @@
 
 // Define IInputs and IOutputs Type. They should match with ControlManifest.
 export interface IInputs {
-    value: ComponentFramework.PropertyTypes.StringProperty;
-    placeholderText: ComponentFramework.PropertyTypes.StringProperty;
-    fontSize: ComponentFramework.PropertyTypes.WholeNumberProperty;
-    fontFamily: ComponentFramework.PropertyTypes.StringProperty;
-    borderRadius: ComponentFramework.PropertyTypes.WholeNumberProperty;
-    padding: ComponentFramework.PropertyTypes.WholeNumberProperty;
-    maxLength: ComponentFramework.PropertyTypes.WholeNumberProperty;
+    Value: ComponentFramework.PropertyTypes.StringProperty;
+    PlaceholderText: ComponentFramework.PropertyTypes.StringProperty;
+    FontSize: ComponentFramework.PropertyTypes.WholeNumberProperty;
+    FontFamily: ComponentFramework.PropertyTypes.StringProperty;
+    BorderRadius: ComponentFramework.PropertyTypes.WholeNumberProperty;
+    Padding: ComponentFramework.PropertyTypes.WholeNumberProperty;
+    MaxLength: ComponentFramework.PropertyTypes.WholeNumberProperty;
 }
 export interface IOutputs {
-    value?: string;
-    onEnterPress?: string;
+    Value?: string;
+    EventStatus?: string;
 }
