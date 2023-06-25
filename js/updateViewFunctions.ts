@@ -16,11 +16,21 @@ export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>
         inputElement.value = inputValue;
     }
 
-    // Set the dynamic styles based on the context parameters
     inputElement.setAttribute("placeholder", context.parameters.PlaceholderText.raw || "Type a new message");
     inputElement.style.fontFamily = context.parameters.FontFamily.raw || "Segoe UI, sans-serif";
     inputElement.style.borderRadius = `${context.parameters.BorderRadius.raw || 4}px`;
     inputElement.style.padding = `${context.parameters.Padding.raw || 12}px`;
     inputElement.style.fontSize = `${context.parameters.FontSize.raw || 14}px`;
     inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
+};
+
+export const resetInput = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement, setInputValue: (value: string) => void, notifyOutputChanged: () => void, setHasBeenReset: (value: boolean) => void, has_been_reset: boolean): void => {
+    if (context.parameters.Reset.raw && !has_been_reset) {
+        setInputValue("");
+        inputElement.value = "";
+        notifyOutputChanged();
+        setHasBeenReset(true);
+    } else {
+        setHasBeenReset(false);
+    }
 };

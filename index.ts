@@ -1,7 +1,7 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import { onBlurHandler, onKeyDownHandler } from "./js/eventHandlers";
 import { createContainer, createInputElement } from "./js/elementCreation";
-import { updateContainerSize, updateDynamicStyles } from "./js/updateViewFunctions";
+import { updateContainerSize, updateDynamicStyles, resetInput } from "./js/updateViewFunctions";
 
 export class EnhancedTextarea implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     private _notifyOutputChanged: () => void;
@@ -67,18 +67,11 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
     public updateView(context: ComponentFramework.Context<IInputs>): void {
         updateContainerSize(context, this._container);
         updateDynamicStyles(context, this._inputElement);
+        resetInput(context, this._inputElement, (value) => this.inputValue = value, this._notifyOutputChanged, (value) => this.has_been_reset = value, this.has_been_reset);
+        
         if (this._onEnterPress === "EnterPressed") {
                 this._onEnterPress = "";
                 this._notifyOutputChanged();
-        }
-
-        if(context.parameters.Reset.raw && context.parameters.Reset.raw === true && !this.has_been_reset){
-            this.has_been_reset = true;
-            this._inputValue = "";
-            this._inputElement.value = ""
-            this._notifyOutputChanged();
-        } else {
-            this.has_been_reset = false;
         }
     }
 
