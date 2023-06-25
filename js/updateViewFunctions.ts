@@ -10,9 +10,7 @@ export const updateContainerSize = (context: ComponentFramework.Context<IInputs>
 export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement): void => {
     const inputValue = context.parameters.Value.raw || "";
 
-    if (context.updatedProperties.includes("Value")) { 
-        inputElement.value = inputValue;
-    } else if (inputElement.value !== inputValue) {
+    if (context.updatedProperties.includes("Value") || inputElement.value !== inputValue) {
         inputElement.value = inputValue;
     }
 
@@ -24,13 +22,12 @@ export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>
     inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
 };
 
-export const resetInput = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement, setInputValue: (value: string) => void, notifyOutputChanged: () => void, setHasBeenReset: (value: boolean) => void, has_been_reset: boolean): void => {
-    if (context.parameters.Reset.raw && !has_been_reset) {
+export const resetInput = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement, setInputValue: (value: string) => void, notifyOutputChanged: () => void): void => {
+    console.log(context.updatedProperties)
+    console.log("new version")
+    if (context.updatedProperties.includes("InputEvent") && context.parameters.InputEvent.raw?.includes("ClearValue")) {
         setInputValue("");
         inputElement.value = "";
         notifyOutputChanged();
-        setHasBeenReset(true);
-    } else {
-        setHasBeenReset(false);
     }
 };

@@ -11,9 +11,10 @@ export interface IInputs {
     BorderRadius: ComponentFramework.PropertyTypes.WholeNumberProperty;
     Padding: ComponentFramework.PropertyTypes.WholeNumberProperty;
     MaxLength: ComponentFramework.PropertyTypes.WholeNumberProperty;
-    Reset: ComponentFramework.PropertyTypes.TwoOptionsProperty;
+    InputEvent: ComponentFramework.PropertyTypes.StringProperty;
 }
 export interface IOutputs {
     Value?: string;
     EventStatus?: string;
+    InputEvent?: string;
 }

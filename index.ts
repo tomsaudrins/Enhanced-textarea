@@ -65,9 +65,10 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
     }
 
     public updateView(context: ComponentFramework.Context<IInputs>): void {
+
         updateContainerSize(context, this._container);
         updateDynamicStyles(context, this._inputElement);
-        resetInput(context, this._inputElement, (value) => this.inputValue = value, this._notifyOutputChanged, (value) => this.has_been_reset = value, this.has_been_reset);
+        resetInput(context, this._inputElement, (value) => this.inputValue = value, this._notifyOutputChanged);
         
         if (this._onEnterPress === "EnterPressed") {
                 this._onEnterPress = "";

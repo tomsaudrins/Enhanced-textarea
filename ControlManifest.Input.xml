@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="TomsPCFComponents" constructor="EnhancedTextarea" version="0.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
+  <control namespace="TomsPCFComponents" constructor="EnhancedTextarea" version="8.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
     <external-service-usage enabled="false" />
     <property name="Value" display-name-key="Value" description-key="The current value of the textarea." of-type="SingleLine.Text" usage="bound" required="false"/>
     <property name="EventStatus" display-name-key="Event Status" description-key="Event that is triggered when the Enter key is pressed." of-type="SingleLine.Text" usage="output" required="false" />
@@ -10,7 +10,7 @@
     <property name="BorderRadius" display-name-key="Border Radius" description-key="The border radius of the textarea." of-type="Whole.None" usage="input" required="false" default-value="4" />
     <property name="Padding" display-name-key="Padding" description-key="The padding inside the textarea." of-type="Whole.None" usage="input" required="false" default-value="12" />
     <property name="MaxLength" display-name-key="Max Length" description-key="Maximum number of characters allowed in the textarea." of-type="Whole.None" usage="input" required="false" default-value="1024" />   
-    <property name="Reset" display-name-key="Reset" description-key="Clear the control" of-type="TwoOptions" usage="input" required="false" default-value="false"/>
+    <property name="InputEvent" display-name-key="Input Event" description-key="Event that will trigger an update in behavior" of-type="SingleLine.Text" usage="bound" required="false" />
 
     <resources>
       <code path="index.ts" order="1"/>
