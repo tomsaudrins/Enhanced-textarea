@@ -16,5 +16,4 @@ export interface IInputs {
 export interface IOutputs {
     Value?: string;
     EventStatus?: string;
-    InputEvent?: string;
 }

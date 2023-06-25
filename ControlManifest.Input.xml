@@ -10,7 +10,7 @@
     <property name="BorderRadius" display-name-key="Border Radius" description-key="The border radius of the textarea." of-type="Whole.None" usage="input" required="false" default-value="4" />
     <property name="Padding" display-name-key="Padding" description-key="The padding inside the textarea." of-type="Whole.None" usage="input" required="false" default-value="12" />
     <property name="MaxLength" display-name-key="Max Length" description-key="Maximum number of characters allowed in the textarea." of-type="Whole.None" usage="input" required="false" default-value="1024" />   
-    <property name="InputEvent" display-name-key="Input Event" description-key="Event that will trigger an update in behavior" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="InputEvent" display-name-key="Input Event" description-key="Event that will trigger an update in behavior" of-type="SingleLine.Text" usage="input"/>
 
     <resources>
       <code path="index.ts" order="1"/>

@@ -23,9 +23,12 @@ export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>
 };
 
 export const resetInput = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement, setInputValue: (value: string) => void, notifyOutputChanged: () => void): void => {
+    console.log(String(context.parameters.InputEvent.raw).indexOf("ClearValue"))
+    console.log(String(context.parameters.InputEvent.raw ))
+    console.log(context.parameters.InputEvent.raw !== undefined)
     console.log(context.updatedProperties)
-    console.log("new version")
-    if (context.updatedProperties.includes("InputEvent") && context.parameters.InputEvent.raw?.includes("ClearValue")) {
+    if (context.updatedProperties.includes("InputEvent") && context.parameters.InputEvent.raw !== undefined && String(context.parameters.InputEvent.raw).indexOf("ClearValue") > -1) {
+        
         setInputValue("");
         inputElement.value = "";
         notifyOutputChanged();
