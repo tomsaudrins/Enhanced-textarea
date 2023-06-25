@@ -11,7 +11,6 @@
     <property name="Padding" display-name-key="Padding" description-key="The padding inside the textarea." of-type="Whole.None" usage="input" required="false" default-value="12" />
     <property name="MaxLength" display-name-key="Max Length" description-key="Maximum number of characters allowed in the textarea." of-type="Whole.None" usage="input" required="false" default-value="1024" />   
     <property name="InputEvent" display-name-key="Input Event" description-key="Event that will trigger an update in behavior" of-type="SingleLine.Text" usage="input"/>
-
     <resources>
       <code path="index.ts" order="1"/>
       <css path="./css/EnhancedTextarea.css" order="1"/>

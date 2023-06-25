@@ -20,7 +20,8 @@ An advanced textarea control for Power Apps that supports submitting text by pre
 1. Add the Enhanced Textarea control to your Power Apps form or canvas.
 2. Bind the `Value` property to the desired field in your data source (if required).
 3. Configure the appearance of the textarea by setting the `Font Family`, `Font Size`, `Border Radius`, and `Padding` properties.
-4. Use the `onChange`action to trigger actions when the Enter key is pressed, by checking if Self.EventStatus = "EnterPressed".
+4. Use the `onChange` action to trigger actions when the Enter key is pressed, by checking if Self.EventStatus = "EnterPressed".
+5. Use the `InputEvent` property to Clear the value of the control. Pass `ClearValue` & `Text(Rand())` (to pass new value) to clear the control.
 
 ## Contributing
 
