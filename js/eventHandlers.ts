@@ -1,9 +1,5 @@
-export const onKeyDownHandler = (e: KeyboardEvent, onEnterPressSetter: (value: string) => void, notifyOutputChanged: () => void, updateInputValue: () => void, delayedOutput: boolean): void => {
+export const onKeyDownHandler = (e: KeyboardEvent, onEnterPressSetter: (value: string) => void, notifyOutputChanged: () => void, updateInputValue: () => void): void => {
     if (e.key !== 'Enter' || e.shiftKey) {
-        if(delayedOutput === false) {
-            updateInputValue();
-            notifyOutputChanged(); 
-        }
         return;
     }
     e.preventDefault();
@@ -12,10 +8,7 @@ export const onKeyDownHandler = (e: KeyboardEvent, onEnterPressSetter: (value: s
     notifyOutputChanged();
 };
 
-export const onBlurHandler = (updateInputValue: () => void, notifyOutputChanged: () => void, delayedOutput: boolean): void => {
-    if(delayedOutput !== true)
-        return
-    
+export const onBlurHandler = (updateInputValue: () => void, notifyOutputChanged: () => void): void => {
     updateInputValue();
     notifyOutputChanged();
 };

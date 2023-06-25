@@ -54,8 +54,8 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
         this._container = createContainer(context);
         this._inputElement = createInputElement(context);
 
-        this._inputElement.addEventListener("blur", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged, this._context.parameters.DelayedOutput.raw || false));
-        this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue, this._context.parameters.DelayedOutput.raw || false));
+        this._inputElement.addEventListener("blur", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged));
+        this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue));
 
         this._container.appendChild(this._inputElement);
         container.appendChild(this._container);
@@ -72,9 +72,10 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
                 this._notifyOutputChanged();
         }
 
-        if(context.parameters.Reset.raw && !this.has_been_reset){
+        if(context.parameters.Reset.raw && context.parameters.Reset.raw === true && !this.has_been_reset){
             this.has_been_reset = true;
             this._inputValue = "";
+            this._inputElement.value = ""
             this._notifyOutputChanged();
         } else {
             this.has_been_reset = false;

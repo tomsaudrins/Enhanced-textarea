@@ -11,7 +11,6 @@ export interface IInputs {
     BorderRadius: ComponentFramework.PropertyTypes.WholeNumberProperty;
     Padding: ComponentFramework.PropertyTypes.WholeNumberProperty;
     MaxLength: ComponentFramework.PropertyTypes.WholeNumberProperty;
-    DelayedOutput: ComponentFramework.PropertyTypes.TwoOptionsProperty;
     Reset: ComponentFramework.PropertyTypes.TwoOptionsProperty;
 }
 export interface IOutputs {
