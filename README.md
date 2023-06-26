@@ -23,6 +23,15 @@ An advanced textarea control for Power Apps that supports submitting text by pre
 4. Use the `onChange` action to trigger actions when the Enter key is pressed, by checking if Self.EventStatus = "EnterPressed".
 5. Use the `InputEvent` property to Clear the value of the control. Pass `ClearValue` & `Text(Rand())` (to pass new value) to clear the control.
 
+### Events
+
+`InputEvent` currently accepts three events:
+1. ClearValue
+2. SetFocus
+3. RemoveFocus
+
+Pass the name of the event (or stack them) & `Text(Rand())` and it will be executed.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
