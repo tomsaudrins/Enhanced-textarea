@@ -2,7 +2,7 @@
 <manifest>
   <control namespace="TomsPCFComponents" constructor="EnhancedTextarea" version="8.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
     <external-service-usage enabled="false" />
-    <property name="Value" display-name-key="Value" description-key="The current value of the textarea." of-type="SingleLine.Text" usage="bound" required="false"/>
+    <property name="Value" display-name-key="Value" description-key="The current value of the textarea." of-type="SingleLine.Text" usage="bound" required="false" default-value=""/>
     <property name="EventStatus" display-name-key="Event Status" description-key="Event that is triggered when the Enter key is pressed." of-type="SingleLine.Text" usage="output" required="false" />
     <property name="PlaceholderText" display-name-key="Placeholder Text" description-key="The placeholder text displayed in the textarea when its empty." of-type="SingleLine.Text" usage="input" required="false" default-value="Type a new message" />    
     <property name="FontSize" display-name-key="Font Size" description-key="The font size of the textarea text." of-type="Whole.None" usage="input" required="false" default-value="14" />

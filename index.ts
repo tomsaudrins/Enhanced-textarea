@@ -41,9 +41,7 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
     public onEnterPressSetter = (value: string): void => {
         
             this._onEnterPress = value;
-            this._inputValue = this._inputElement.value;
-            this._notifyOutputChanged();
-        
+            //this._inputValue = this._inputElement.value;
     }
 
     // Initialization
@@ -53,15 +51,15 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
 
         this._container = createContainer(context);
         this._inputElement = createInputElement(context);
-
-        this._inputElement.addEventListener("blur", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged));
+        this._inputElement.addEventListener("focusout", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged));
         this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue));
 
         this._container.appendChild(this._inputElement);
         container.appendChild(this._container);
-
-        // Track container resizing
         context.mode.trackContainerResize(true);
+
+        this.onEnterPressSetter("");
+        this._notifyOutputChanged()
     }
 
     public updateView(context: ComponentFramework.Context<IInputs>): void {
