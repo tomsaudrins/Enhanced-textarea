@@ -1,6 +1,6 @@
 # Enhanced Textarea
 
-An advanced textarea control for Power Apps that supports submitting text by pressing the Enter key.
+An advanced textarea control for Power Apps that support submitting text by pressing the Enter key.
 
 ## Features
 
@@ -31,6 +31,8 @@ An advanced textarea control for Power Apps that supports submitting text by pre
 3. RemoveFocus
 
 Pass the name of the event (or stack them) & `Text(Rand())` and it will be executed.
+
+![Drag Racing](https://i.imgur.com/qHNgWFE.png)
 
 ## Contributing
 
