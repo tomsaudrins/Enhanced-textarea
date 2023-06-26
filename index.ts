@@ -1,7 +1,7 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import { onBlurHandler, onKeyDownHandler } from "./js/eventHandlers";
 import { createContainer, createInputElement } from "./js/elementCreation";
-import { updateContainerSize, updateDynamicStyles, resetInput } from "./js/updateViewFunctions";
+import { updateContainerSize, updateDynamicStyles, handleInputEvents } from "./js/updateViewFunctions";
 
 export class EnhancedTextarea implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     private _notifyOutputChanged: () => void;
@@ -51,7 +51,7 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
 
         this._container = createContainer(context);
         this._inputElement = createInputElement(context);
-        this._inputElement.addEventListener("focusout", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged));
+        this._inputElement.addEventListener("input", () => onBlurHandler(this.updateInputValue, this._notifyOutputChanged));
         this._inputElement.addEventListener("keydown", (e) => onKeyDownHandler(e, this.onEnterPressSetter, this._notifyOutputChanged, this.updateInputValue));
 
         this._container.appendChild(this._inputElement);
@@ -66,7 +66,7 @@ export class EnhancedTextarea implements ComponentFramework.StandardControl<IInp
 
         updateContainerSize(context, this._container);
         updateDynamicStyles(context, this._inputElement);
-        resetInput(context, this._inputElement, (value) => this.inputValue = value, this._notifyOutputChanged);
+        handleInputEvents(context, this._inputElement, (value) => this.inputValue = value, this._notifyOutputChanged);
         
         if (this._onEnterPress === "EnterPressed") {
                 this._onEnterPress = "";

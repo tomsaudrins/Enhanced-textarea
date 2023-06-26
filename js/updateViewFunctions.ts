@@ -22,11 +22,25 @@ export const updateDynamicStyles = (context: ComponentFramework.Context<IInputs>
     inputElement.maxLength = context.parameters.MaxLength.raw || 1000;
 };
 
-export const resetInput = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement, setInputValue: (value: string) => void, notifyOutputChanged: () => void): void => {
-    if (context.updatedProperties.includes("InputEvent") && context.parameters.InputEvent.raw !== undefined && String(context.parameters.InputEvent.raw).indexOf("ClearValue") > -1) {
+export const handleInputEvents = (context: ComponentFramework.Context<IInputs>, inputElement: HTMLTextAreaElement, setInputValue: (value: string) => void, notifyOutputChanged: () => void): void => {
+    if (context.updatedProperties.includes("InputEvent") && context.parameters.InputEvent.raw !== undefined) {
+        const inputEvents = String(context.parameters.InputEvent.raw);
+
+        // SetFocus event
+        if (inputEvents.indexOf("SetFocus") > -1)
+            inputElement.focus();
         
-        setInputValue("");
-        inputElement.value = "";
-        notifyOutputChanged();
+
+        // RemoveFocus event
+        if (inputEvents.indexOf("RemoveFocus") > -1)
+            inputElement.blur();
+        
+
+        // ClearValue event
+        if (inputEvents.indexOf("ClearValue") > -1) {
+            setInputValue("");
+            inputElement.value = "";
+            notifyOutputChanged();
+        }
     }
 };

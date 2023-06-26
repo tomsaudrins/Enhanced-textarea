@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="TomsPCFComponents" constructor="EnhancedTextarea" version="8.0.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
+  <control namespace="TomsPCFComponents" constructor="EnhancedTextarea" version="10.1.1" display-name-key="Enhanced Textarea" description-key="An advanced textarea control that supports submitting text by pressing the Enter key." control-type="standard">
     <external-service-usage enabled="false" />
     <property name="Value" display-name-key="Value" description-key="The current value of the textarea." of-type="SingleLine.Text" usage="bound" required="false" default-value=""/>
     <property name="EventStatus" display-name-key="Event Status" description-key="Event that is triggered when the Enter key is pressed." of-type="SingleLine.Text" usage="output" required="false" />
